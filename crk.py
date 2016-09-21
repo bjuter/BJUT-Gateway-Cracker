@@ -11,12 +11,6 @@ requests.adapters.DEFAULT_RETRIES = 5
 # this global variable is used to avoid SSL cert verify fail when fiddler is used
 fiddler_ssl = False
 
-# I cannot log in automatically, so I put this usable cookie here
-# this cookie can be reproduced by explorer and caught by fiddler
-# this really sucks, but it's the only solution by now
-test_cookie = 'JSESSIONID=F12C8E1CB3D6218C617B7ACA33189DDD'
-
-
 def is_success(html_res):
     class HtmlPar(HTMLParser):
         flg_title = False
