@@ -243,7 +243,10 @@ if __name__ == '__main__':
             # print(check_code, html_cookie)
             u_total = get_total_traffic(check_code, u_name, u_pass, html_cookie, s)
             f_out.write(
-                u_name + ',' + u_pass + ',' + u_used_data + ',' + u_total + ',' + u_used_time + ',' + u_remain_money + '\n')
+                str(u_name) + ',' + str(u_pass) + ',' + str(u_used_data)
+                 + ',' + str(u_total)
+                 + ',' + str(u_used_time)
+                 + ',' + str(u_remain_money) + '\n')
             log_out(html_cookie, s)
         else:
             print("\tFailed.")

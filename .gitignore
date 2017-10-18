@@ -118,3 +118,5 @@ dic.txt
 dic2.txt
 .idea/vcs.xml
 ok.csv
+*.bak.txt
+img/*.txt
