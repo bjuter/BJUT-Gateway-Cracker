@@ -252,8 +252,9 @@ if __name__ == '__main__':
         else:
             print("\tFailed.")
 
-        u_name = f_dic.readline().strip('\n')
-        u_pass = f_dic.readline().strip('\n')
+        f_line = f_dic.readline().strip('\n').split('\t')
+        u_name = f_line[0]
+        u_pass = f_line[1]
 
     f_dic.close()
     f_out.close()
