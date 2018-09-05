@@ -206,8 +206,9 @@ if __name__ == '__main__':
     f_dic = open("dic.txt")
     f_out = open("ok.csv", "w")
     f_out.write('name,pass,used_data,total,used_time,remain_money\n')
-    u_name = f_dic.readline().strip('\n')
-    u_pass = f_dic.readline().strip('\n')
+    f_line = f_dic.readline().strip('\n').split('\t')
+    u_name = f_line[0]
+    u_pass = f_line[1]
     count = 0
     while u_name != "" and u_pass != "":
         count += 1
